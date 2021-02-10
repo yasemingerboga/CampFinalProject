@@ -1,11 +1,11 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using Entities.Concreate;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business.Concreate
+namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
@@ -19,6 +19,16 @@ namespace Business.Concreate
             //İş Kodları
             //Yetkisi var mı? vs..
             return _productDal.GetAll();
+        }
+
+        public List<Product> GetAllByCategoryId(int id)
+        {
+            return _productDal.GetAll(p => p.CategoryID == id);
+        }
+
+        public List<Product> GetAllByUnitPrice(decimal min, decimal max)
+        {
+            return _productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
         }
     }
 }

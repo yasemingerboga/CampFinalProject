@@ -31,10 +31,12 @@ namespace WebAPI
         {
             //Autofac, Ninject, CastleWindsor, StructureMap, LightInject, DryInject --> IoC Container
             //AOP --> Bir metodun sonunda, onunde veya hata verdiginde calisan kod parcaciklarına denir. --> Java Spring Boot'da default
+            //Postsharp (ucretli)
             services.AddControllers();
             //singleton sadece içinde data tutmayanlar icin kullanilir.
-            services.AddSingleton<IProductService,ProductManager>();
-            services.AddSingleton<IProductDal,EfProductDal>();
+            //services.AddSingleton<IProductService,ProductManager>();
+            //services.AddSingleton<IProductDal,EfProductDal>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
